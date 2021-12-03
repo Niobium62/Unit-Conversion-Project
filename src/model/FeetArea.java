@@ -1,23 +1,22 @@
+package model;
 import java.awt.*;
 
 public class FeetArea extends TextArea {
 
 	public FeetArea() {
 		this.color = new Color(0, 255, 0);
-		this.text = "";
-		this.isEditable = false;
 	}
 
 	@Override
-	public void updateSquare(TextArea t) {
+	public void updateSquare(String text) {
 		try {
-			double newValue = Double.parseDouble(t.textField.getText());
+			double newValue = Double.parseDouble(text);
 			newValue /= 30.48;
 			String newText = newValue + "";
-			setText(newText);
+			textField.setText(newText);
 		}
 		catch (NumberFormatException e) {
-			setText("Invalid Input");
+			textField.setText("Invalid Input");
 		}
 	}
 }

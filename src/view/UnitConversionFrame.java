@@ -1,10 +1,18 @@
+package view;
 import javax.swing.*;
+
+import controller.ValueController;
+import model.CentimetersArea;
+import model.FeetArea;
+import model.MetersArea;
+import model.TextArea;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.*;
 
-public class UnitConversionApp extends JFrame{
+public class UnitConversionFrame extends JFrame{
 	
 	
 	/**
@@ -15,23 +23,18 @@ public class UnitConversionApp extends JFrame{
 	private MetersArea metersArea = new MetersArea();
 	private CentimetersArea centimetersArea = new CentimetersArea();
 	
-	List<TextArea> subscribers = new ArrayList<TextArea>();
+	
+	private ValueController valueController = new ValueController();
 	
 	
 	private void initializeSubscribers() {
-		subscribers.add(feetArea);
-		subscribers.add(metersArea);
-		subscribers.add(centimetersArea);
+		valueController.add(feetArea);
+		valueController.add(metersArea);
+		valueController.add(centimetersArea);
 	}
 	
-	protected void notifySubscribers() {
-		repaint();
-		for (TextArea t : subscribers) {
-			t.updateSquare(centimetersArea);
-		}
-	}
 	
-	public UnitConversionApp() {
+	public UnitConversionFrame() {
 		initializeSubscribers();
 		setTitle("Unit Conversion App");
 		GraphicsPanel panel = new GraphicsPanel();
@@ -63,7 +66,7 @@ public class UnitConversionApp extends JFrame{
 		
 		saveBtn.addActionListener(new ActionListener(){  
 			public void actionPerformed(ActionEvent e){  
-			            notifySubscribers();
+					valueController.notifySubscribers(centimetersArea.textField.getText());
 			        }  
 			    });  
 		
@@ -79,15 +82,15 @@ public class UnitConversionApp extends JFrame{
 		setResizable(false); 
 		
 	}
-
-	public static void main(String[] args) {
-		UnitConversionApp app = new UnitConversionApp();
-		app.repaint();
-	}
 	
 
 	
 	public class GraphicsPanel extends JPanel{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1947477796477083029L;
+
 		@Override
 	    protected void paintComponent(Graphics g) {
 	        super.paintComponent(g);
