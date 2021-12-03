@@ -34,11 +34,12 @@ public class UnitConversionApp extends JFrame{
 	public UnitConversionApp() {
 		initializeSubscribers();
 		setTitle("Unit Conversion App");
+		GraphicsPanel panel = new GraphicsPanel();
 		setSize(900, 900);
 		
 		FlowLayout myLayout = new FlowLayout();
-		myLayout.setHgap(100);
-		myLayout.setVgap(150);
+		myLayout.setHgap(120);
+		myLayout.setVgap(200);
 		
 		panel.setLayout(myLayout);
 		add(panel);
@@ -84,18 +85,22 @@ public class UnitConversionApp extends JFrame{
 		app.repaint();
 	}
 	
-	public void paint(Graphics g) 
-    {
-		 
-		 g.setColor(feetArea.getColor());
-         g.fillRect(100, 35, 300, 300);
-         
-         
-		 g.setColor(metersArea.getColor());
-         g.fillRect(500, 35, 300, 300);
-         
-         g.setColor(centimetersArea.getColor());
-         g.fillRect(300, 350, 300, 300);
-    }
+
+	
+	public class GraphicsPanel extends JPanel{
+		@Override
+	    protected void paintComponent(Graphics g) {
+	        super.paintComponent(g);
+			g.setColor(feetArea.getColor());
+	        g.fillRect(100, 35, 300, 300);
+	         
+	         
+			g.setColor(metersArea.getColor());
+	        g.fillRect(500, 35, 300, 300);
+	         
+	        g.setColor(centimetersArea.getColor());
+	        g.fillRect(300, 350, 300, 300);
+	    }
+	}
 
 }
