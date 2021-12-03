@@ -34,7 +34,6 @@ public class UnitConversionApp extends JFrame{
 	public UnitConversionApp() {
 		initializeSubscribers();
 		setTitle("Unit Conversion App");
-		JPanel panel = new JPanel();
 		setSize(900, 900);
 		
 		FlowLayout myLayout = new FlowLayout();
