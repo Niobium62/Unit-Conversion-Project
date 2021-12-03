@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.event.*;
 
 public class UnitConversionApp extends JFrame{
 	
@@ -10,9 +11,9 @@ public class UnitConversionApp extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1752112959869347174L;
-	FeetArea feetArea = new FeetArea();
-	MetersArea metersArea = new MetersArea();
-	CentimetersArea centimetersArea = new CentimetersArea();
+	private FeetArea feetArea = new FeetArea();
+	private MetersArea metersArea = new MetersArea();
+	private CentimetersArea centimetersArea = new CentimetersArea();
 	
 	List<TextArea> subscribers = new ArrayList<TextArea>();
 	
@@ -23,12 +24,18 @@ public class UnitConversionApp extends JFrame{
 		subscribers.add(centimetersArea);
 	}
 	
+	protected void notifySubscribers() {
+		for (TextArea t : subscribers) {
+			t.updateSquare(centimetersArea);
+		}
+	}
+	
 	public UnitConversionApp() {
 		initializeSubscribers();
 		setTitle("Unit Conversion App");
 		JPanel panel = new JPanel();
 		setSize(900, 900);
-		//panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));;
+		
 		FlowLayout myLayout = new FlowLayout();
 		myLayout.setHgap(100);
 		myLayout.setVgap(150);
@@ -37,25 +44,39 @@ public class UnitConversionApp extends JFrame{
 		add(panel);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//frame.setLayout(new FlowLayout());
-		JTextField feetText = new JTextField("length in feet", 20);
-		feetText.setEditable(true);
-		feetText.setOpaque(false);
-		panel.add(feetText);
-		JTextField metersText = new JTextField("length in meters", 20);
-		metersText.setEditable(true);
-		metersText.setOpaque(false);
-		panel.add(metersText);
 		
-		JTextField centimetersText = new JTextField("length in cm", 20);
-		centimetersText.setEditable(true);
-		centimetersText.setOpaque(false);
-		panel.add(centimetersText);
+		feetArea.textField.setEditable(true);
+		feetArea.textField.setOpaque(false);
+		panel.add(feetArea.textField);
+		metersArea.textField.setEditable(true);
+		metersArea.textField.setOpaque(false);
+		panel.add(metersArea.textField);
+		centimetersArea.textField.setEditable(true);
+		centimetersArea.textField.setOpaque(false);
+		panel.add(centimetersArea.textField);
+		
+		
+		JMenuBar menubar = new JMenuBar();
+		JMenu updateModel = new JMenu("Update Model");
+		JMenuItem saveBtn = new JMenuItem("Save input centimeters");
+		
+		saveBtn.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+			            notifySubscribers();
+			        }  
+			    });  
+		
+		menubar.add(updateModel);
+		updateModel.add(saveBtn);
+		setJMenuBar(menubar);
+		
 		
 		
 		setContentPane(panel);
 		setVisible(false);
 		setVisible(true);
+		setResizable(false); 
+		
 	}
 
 	public static void main(String[] args) {

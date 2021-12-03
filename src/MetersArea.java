@@ -10,11 +10,14 @@ public class MetersArea extends TextArea{
 	
 	@Override
 	public void updateSquare(TextArea t) {
-		double newValue = Double.parseDouble(t.getText());
-		newValue /= 100;
-		String newText = newValue + "";
-		setText(newText);
-		
+		try {
+			double newValue = Double.parseDouble(t.textField.getText());
+			newValue /= 100;
+			String newText = newValue + "";
+			setText(newText);
+		}
+		catch (NumberFormatException e) {
+			setText("Invalid Input");
+		}
 	}
-
 }
