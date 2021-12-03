@@ -25,6 +25,7 @@ public class UnitConversionApp extends JFrame{
 	}
 	
 	protected void notifySubscribers() {
+		repaint();
 		for (TextArea t : subscribers) {
 			t.updateSquare(centimetersArea);
 		}
