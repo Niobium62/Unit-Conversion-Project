@@ -11,7 +11,7 @@ public class MetersArea extends TextArea{
 		this.textField.setEditable(false);
 		this.textField.setOpaque(false);
 		this.color = new Color(255, 188, 0);
-		
+		textField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		this.subject = subject;
 		this.subject.addSubscriber(this);
 	}
