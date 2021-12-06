@@ -11,7 +11,7 @@ public class FeetArea extends TextArea {
 		this.textField.setEditable(false);
 		this.textField.setOpaque(false);
 		this.color = new Color(0, 255, 0);
-
+		textField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		this.subject = subject;
 		this.subject.addSubscriber(this);
 	}
@@ -21,7 +21,7 @@ public class FeetArea extends TextArea {
 		try {
 			double newValue = Double.parseDouble(text);
 			newValue /= 30.48;
-			String newText = newValue + "";
+			String newText = newValue + " ft";
 			textField.setText(newText);
 		}
 		catch (NumberFormatException e) {

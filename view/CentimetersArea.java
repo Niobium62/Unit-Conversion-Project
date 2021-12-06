@@ -12,7 +12,7 @@ public class CentimetersArea extends TextArea{
 	public CentimetersArea() {
 		
 		this.color = new Color(255, 255, 0);
-		this.textField = new JTextField("165", 20);
+		this.textField = new JTextField("", 20);
 		
 		this.textField.setEditable(true);
 		this.textField.setOpaque(false);
