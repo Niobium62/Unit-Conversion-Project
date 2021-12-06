@@ -1,10 +1,19 @@
-package model;
+package view;
+import model.*;
 import java.awt.*;
 
 public class FeetArea extends TextArea {
 
-	public FeetArea() {
+	Subject subject;
+	
+	public FeetArea(Subject subject) {
+		super();
+		this.textField.setEditable(false);
+		this.textField.setOpaque(false);
 		this.color = new Color(0, 255, 0);
+
+		this.subject = subject;
+		this.subject.addSubscriber(this);
 	}
 
 	@Override

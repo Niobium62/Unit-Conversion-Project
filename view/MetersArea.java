@@ -1,10 +1,19 @@
-package model;
+package view;
 import java.awt.*;
+import model.Subject;
 
 public class MetersArea extends TextArea{
 
-	public MetersArea() {
+	Subject subject;
+	
+	public MetersArea(Subject subject) {
+		super();
+		this.textField.setEditable(false);
+		this.textField.setOpaque(false);
 		this.color = new Color(255, 188, 0);
+		
+		this.subject = subject;
+		this.subject.addSubscriber(this);
 	}
 	
 	@Override

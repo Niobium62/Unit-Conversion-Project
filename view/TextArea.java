@@ -1,8 +1,6 @@
-package model;
+package view;
 import java.awt.*;
-
 import javax.swing.JTextField;
-
 
 public abstract class TextArea {
 
