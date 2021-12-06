@@ -21,7 +21,7 @@ public class MetersArea extends TextArea{
 		try {
 			double newValue = Double.parseDouble(text);
 			newValue /= 100;
-			String newText = newValue + "";
+			String newText = newValue + " m";
 			textField.setText(newText);
 		}
 		catch (NumberFormatException e) {

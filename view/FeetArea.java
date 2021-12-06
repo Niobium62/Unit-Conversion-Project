@@ -21,7 +21,7 @@ public class FeetArea extends TextArea {
 		try {
 			double newValue = Double.parseDouble(text);
 			newValue /= 30.48;
-			String newText = newValue + "";
+			String newText = newValue + " ft";
 			textField.setText(newText);
 		}
 		catch (NumberFormatException e) {
