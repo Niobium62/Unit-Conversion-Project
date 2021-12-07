@@ -1,5 +1,6 @@
 # Unit-Conversion-Project
-EECS3311A LAB6 Group13
+
+## EECS3311A LAB6 Group13
 Course: EECS3311
 Section: A and B
 
@@ -7,7 +8,7 @@ Name of the project: Lab 6 - Unit Converter
 
 TA: Naeiji Alireza
 
-Group Members:
+## Group Members:
 
 Omar Saeed: 215911555
 Arian Mohamad Hosaini: 214969638
