@@ -3,12 +3,14 @@ import java.awt.*;
 import javax.swing.JTextField;
 
 /**
- * 
  * CentimetersArea class that the user can enter (type) a value is centimeters
- * precondition: any positive value or 0
+ * precondition: any integer or decimal value
  */
 public class CentimetersArea extends TextArea{
 	
+	/**
+	 * Instantiates a new centimeters area.
+	 */
 	public CentimetersArea() {
 		
 		this.color = new Color(255, 255, 0);

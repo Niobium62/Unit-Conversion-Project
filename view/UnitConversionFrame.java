@@ -9,10 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.*;
 
+/**
+ * The JFrame that holds the UnitConversionPanel, which handles the text areas
+ */
 public class UnitConversionFrame extends JFrame {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1752112959869347174L;
 
+	/**
+	 * Instantiates a new unit conversion frame.
+	 */
 	public UnitConversionFrame() {
 		setTitle("Unit Conversion App");
 		setSize(900, 900);

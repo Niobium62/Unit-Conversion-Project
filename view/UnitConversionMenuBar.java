@@ -12,6 +12,8 @@ public class UnitConversionMenuBar extends JMenuBar {
 
 	/**
 	 * The class constructor to create MenuBar and add menu item to it.
+	 *
+	 * @param menubarListener the menubar listener
 	 */
 
 	public UnitConversionMenuBar(ActionListener menubarListener) {
